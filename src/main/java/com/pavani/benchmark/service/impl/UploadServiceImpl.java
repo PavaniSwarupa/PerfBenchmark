@@ -8,10 +8,12 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
+@Service
 public class UploadServiceImpl implements UploadService {
     @Autowired
     private PerfResultsRepository perfResultsRepository;
@@ -22,6 +24,7 @@ public class UploadServiceImpl implements UploadService {
     }
 
     private Boolean readExcelAndSaveToDB(String filePath) throws Exception {
+        System.out.println("File Path ::::::::::"+new File("").getAbsolutePath());
         File file = new File(filePath);
         if (file.exists()) {
             System.out.println("File exists");
@@ -32,7 +35,7 @@ public class UploadServiceImpl implements UploadService {
                 perfResults = mapToModel(currentRow);
                 perfResultsRepository.save(perfResults);
             }
-            //workbook.close();
+            workbook.close();
         } else
             throw new FileNotFoundException("File not found");
         return Boolean.TRUE;
