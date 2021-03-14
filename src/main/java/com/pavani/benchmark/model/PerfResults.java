@@ -1,5 +1,6 @@
 package com.pavani.benchmark.model;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "perfresults")
 @Data
+@Builder
 public class PerfResults {
     @Id
     @GeneratedValue
