@@ -4,24 +4,30 @@ import com.pavani.benchmark.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/upload")
+@RestController
+@RequestMapping("/upload")
 public class UploadController {
     @Autowired
     private UploadService uploadService;
 
     @PostMapping
-    private ResponseEntity<HttpStatus> upload(@RequestBody String filePath) {
+    public HttpStatus upload(@RequestBody String filePath) {
         HttpStatus httpStatus = HttpStatus.OK;
         try {
+            System.out.println("In Upload Controller FilePath " + filePath);
             uploadService.loadExcelToDB(filePath);
         } catch (Exception e) {
             e.printStackTrace();
             httpStatus = HttpStatus.FAILED_DEPENDENCY;
         }
-        return new ResponseEntity<>(httpStatus);
+        return httpStatus;
     }
+
+    @GetMapping
+    public String getData() {
+        return "Not Implemented Yet";
+    }
+
 }

@@ -24,6 +24,7 @@ public class UploadServiceImpl implements UploadService {
     }
 
     private Boolean readExcelAndSaveToDB(String filePath) throws Exception {
+        System.out.println("File Path ::::::::::"+new File("").getAbsolutePath());
         File file = new File(filePath);
         if (file.exists()) {
             System.out.println("File exists");
@@ -34,7 +35,7 @@ public class UploadServiceImpl implements UploadService {
                 perfResults = mapToModel(currentRow);
                 perfResultsRepository.save(perfResults);
             }
-            //workbook.close();
+            workbook.close();
         } else
             throw new FileNotFoundException("File not found");
         return Boolean.TRUE;
