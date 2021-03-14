@@ -1,5 +1,8 @@
 package com.pavani.benchmark;
 
+import com.pavani.benchmark.service.UploadService;
+import com.pavani.benchmark.service.impl.UploadServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
