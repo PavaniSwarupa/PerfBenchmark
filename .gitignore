@@ -36,3 +36,6 @@ build/
 mvnw
 mvnw.cmd
 .gitignore
+
+### H2 db temp folder ###
+data/
