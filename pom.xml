@@ -15,6 +15,9 @@
 	<description>Upload Performance results and Compare performance improvements Gen to Gen and across milestones</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<sonar.projectKey>PavaniSwarupa_PerfBenchmark</sonar.projectKey>
+		<sonar.organization>pavaniswarupa</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
